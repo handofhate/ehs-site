@@ -563,6 +563,162 @@
 
     footer a:hover { color: var(--accent-light); }
 
+    /* ── TRUST BAR ── */
+    #trust {
+      background: var(--dark);
+      padding: 20px 24px;
+    }
+
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .trust-item span:first-child { font-size: 1.1rem; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--light); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .pricing-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(217,119,6,0.1);
+    }
+
+    .pricing-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+
+    .pricing-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .pricing-rate {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin: 16px 0 4px;
+    }
+
+    .pricing-rate span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .pricing-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── FAQ ── */
+    #faq { background: #fff; }
+
+    .faq-list {
+      margin-top: 48px;
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question:hover { background: var(--light); }
+
+    .faq-chevron {
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+      padding: 0 24px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-answer p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -614,6 +770,17 @@
     </div>
   </div>
 </section>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-bar">
+    <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+    <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+    <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
+    <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
+    <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -755,6 +922,66 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">No Surprises. Ever.</h2>
+    <p class="section-sub">We believe you shouldn't have to call just to know if you can afford us. Here's what we charge.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <span class="pricing-icon">🧹</span>
+        <h3>Home Cleaning</h3>
+        <div class="pricing-rate">$50<span>/hr</span></div>
+        <p>Residential cleaning services billed by the hour. Regular and one-time deep cleans available.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-icon">🔧</span>
+        <h3>Handyman &amp; Repairs</h3>
+        <div class="pricing-rate">$75<span>/hr</span></div>
+        <p>General repairs, installations, and home improvements. Labor billed by the hour.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-icon">📅</span>
+        <h3>Seasonal Maintenance</h3>
+        <div class="pricing-rate">$75<span>/hr</span></div>
+        <p>Routine home upkeep — smoke detectors, air filters, gutter checks, and more.</p>
+      </div>
+    </div>
+    <p class="pricing-note">Rates shown are starting points. Final pricing depends on job complexity and materials. We'll always provide a free estimate before any work begins — and you only pay for time actually spent on your project.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-label" style="text-align:center">FAQ</p>
+    <h2 class="section-title" style="text-align:center">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Do you provide materials, or do I? <span class="faq-chevron">▼</span></button>
+        <div class="faq-answer"><p>We're flexible. We can provide all materials and include them in your quote, give you an itemized quote that separates labor and materials, or work with materials you've already sourced. Just let us know what works best for your project.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How does payment work? <span class="faq-chevron">▼</span></button>
+        <div class="faq-answer"><p>We invoice after the job is complete and you can pay online by card — that's how most of our customers pay. We also accept cash, Venmo, CashApp, Apple Pay, PayPal, Google Pay, and checks. Whatever works for you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What areas do you serve? <span class="faq-chevron">▼</span></button>
+        <div class="faq-answer"><p>We serve Flagstaff and the greater Phoenix area including Mesa, Chandler, Gilbert, Tempe, Scottsdale, Apache Junction, Queen Creek, San Tan Valley, and surrounding communities. Not sure if we cover your area? Just ask — we'll do our best to make it work.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I schedule a job? <span class="faq-chevron">▼</span></button>
+        <div class="faq-answer"><p>Submit a quote request using the form below and we'll get back to you within 24 hours to discuss your project and find a time that works. Everything is handled by email so there's a clear record of what was agreed.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Are estimates really free? <span class="faq-chevron">▼</span></button>
+        <div class="faq-answer"><p>Yes, always. We'll give you a clear quote before any work starts so you know exactly what to expect. No obligation, no pressure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- QUOTE -->
 <section id="quote">
   <div class="container">
@@ -762,7 +989,7 @@
       <div class="quote-info">
         <p class="section-label">Get In Touch</p>
         <h2 class="section-title">Request a Quote</h2>
-        <p>Tell us about your project and we'll get back to you promptly. No job is too big or too small — we're here to help.</p>
+        <p>Tell us about your project and we'll get back to you within 24 hours. No job is too big or too small — we're here to help.</p>
         <div class="contact-detail">
           <span>✉️</span>
           <span><a href="mailto:requestehs@gmail.com">requestehs@gmail.com</a></span>
@@ -821,6 +1048,17 @@
 </footer>
 
 <script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Carousel
   const track = document.getElementById('reviewTrack');
   const dotsWrap = document.getElementById('carouselDots');
   const cards = track.querySelectorAll('.review-card');
