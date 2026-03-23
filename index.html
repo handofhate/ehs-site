@@ -568,6 +568,9 @@
       background: var(--dark);
       padding: 16px 0;
       overflow: hidden;
+      position: sticky;
+      top: 64px;
+      z-index: 99;
     }
 
     .trust-bar {
@@ -579,7 +582,7 @@
       padding: 4px 24px;
     }
 
-    .trust-duplicate { display: none; }
+    .trust-duplicate { display: none !important; }
 
     .trust-item {
       display: flex;
@@ -607,9 +610,10 @@
         width: max-content;
         padding: 4px 24px;
         animation: marquee 20s linear infinite;
+        pointer-events: none;
+        touch-action: none;
       }
-      .trust-bar:hover { animation-play-state: paused; }
-      .trust-duplicate { display: flex; }
+      .trust-duplicate { display: flex !important; }
     }
 
     /* ── PRICING ── */
