@@ -37,9 +37,6 @@
       z-index: 100;
       background: var(--darker);
       box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
     }
 
     .nav-inner {
@@ -372,6 +369,11 @@
     .carousel-track-outer {
       overflow: hidden;
       border-radius: 16px;
+      height: 180px;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-track-outer { height: 300px; }
     }
 
     .carousel-track {
@@ -386,6 +388,10 @@
       padding: 40px 48px;
       min-width: 100%;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .stars {
@@ -571,9 +577,13 @@
 
     /* ── TRUST BAR ── */
     #trust {
+      position: sticky;
+      top: 64px;
+      z-index: 99;
       background: var(--dark);
       border-top: 1px solid rgba(255,255,255,0.07);
       padding: 12px 0;
+      overflow: hidden;
     }
 
     .trust-bar {
@@ -600,20 +610,14 @@
 
     .trust-item span:first-child { font-size: 1.1rem; }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
     @media (max-width: 768px) {
       .trust-bar {
         flex-wrap: nowrap;
-        justify-content: space-around;
-        width: 200%;
+        width: max-content;
         padding: 4px 0;
-        animation: marquee 20s linear infinite;
         pointer-events: none;
         touch-action: none;
+        will-change: transform;
       }
       .trust-duplicate { display: flex !important; }
     }
@@ -774,21 +778,23 @@
       <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
     </ul>
   </div>
-  <div id="trust">
-    <div class="trust-bar">
-      <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
-      <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
-      <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
-      <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
-      <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
-      <div class="trust-item trust-duplicate"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
-      <div class="trust-item trust-duplicate"><span>📅</span><span>Serving Arizona Since 2012</span></div>
-      <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
-      <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
-      <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
-    </div>
-  </div>
 </nav>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-bar">
+    <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+    <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+    <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
+    <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
+    <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
+    <div class="trust-item trust-duplicate"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+    <div class="trust-item trust-duplicate"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+    <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
+    <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
+    <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="home">
@@ -1100,7 +1106,6 @@
   const cards = track.querySelectorAll('.review-card');
   let current = 0;
 
-  // Build dots
   cards.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -1116,9 +1121,25 @@
 
   document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
   document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-
-  // Auto-advance every 5 seconds
   setInterval(() => goTo(current + 1), 5000);
+
+  // JS marquee (mobile only) — no CSS animation, no layout bleed
+  if (window.innerWidth <= 768) {
+    const trustBar = document.querySelector('.trust-bar');
+    let marqueeX = 0;
+    const speed = 0.5;
+
+    function animateMarquee() {
+      marqueeX -= speed;
+      const half = trustBar.scrollWidth / 2;
+      if (marqueeX <= -half) marqueeX = 0;
+      trustBar.style.transform = `translateX(${marqueeX}px)`;
+      requestAnimationFrame(animateMarquee);
+    }
+
+    // Wait one frame so scrollWidth is calculated after layout
+    requestAnimationFrame(animateMarquee);
+  }
 </script>
 </body>
 </html>
