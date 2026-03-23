@@ -358,32 +358,89 @@
     #reviews .section-label { color: var(--accent-light); }
     #reviews .section-sub { color: rgba(255,255,255,0.55); }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .carousel-wrap {
+      position: relative;
       margin-top: 48px;
+    }
+
+    .carousel-track-outer {
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .review-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
-      padding: 28px;
+      padding: 40px 48px;
+      min-width: 100%;
+      box-sizing: border-box;
     }
 
     .stars {
       color: var(--accent-light);
-      font-size: 0.9rem;
-      margin-bottom: 14px;
-      letter-spacing: 2px;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      letter-spacing: 3px;
     }
 
     .review-card p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.92rem;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      line-height: 1.8;
       font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .carousel-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .carousel-btn:hover { background: rgba(255,255,255,0.2); }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .dot.active {
+      background: var(--accent-light);
+      transform: scale(1.3);
     }
 
     /* ── QUOTE ── */
@@ -664,26 +721,35 @@
     <p class="section-label">What People Say</p>
     <h2 class="section-title">Real Work. Real Results.</h2>
     <p class="section-sub">We let our customers do the talking.</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Executive Home Solutions was a breeze to work with. Art had my water softener installed in no time at all, and made sure to leave the place cleaner than he found it."</p>
+    <div class="carousel-wrap">
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="reviewTrack">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Executive Home Solutions was a breeze to work with. Art had my water softener installed in no time at all, and made sure to leave the place cleaner than he found it."</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"When I needed an extra outlet installed in my laundry room, the guy was so fast I didn't even realize he was already done! Worth every penny!"</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Art was at my house for several days working on a huge project putting in recessed lighting all over my house. He was such a pleasant guy."</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Executive Home Solutions made my vision a reality, and more. They were able to take my ideas and suggest improvements I hadn't even thought of."</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Working with the scheduler via email was super easy and Art was on time. He finished ahead of schedule and I only had to pay for the time he actually spent working."</p>
+          </div>
+        </div>
       </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"When I needed an extra outlet installed in my laundry room, the guy was so fast I didn't even realize he was already done! Worth every penny!"</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Art was at my house for several days working on a huge project putting in recessed lighting all over my house. He was such a pleasant guy."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Executive Home Solutions made my vision a reality, and more. They were able to take my ideas and suggest improvements I hadn't even thought of."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Working with the scheduler via email was super easy and Art was on time. He finished ahead of schedule and I only had to pay for the time he actually spent working."</p>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn">&#8592;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="nextBtn">&#8594;</button>
       </div>
     </div>
   </div>
@@ -754,5 +820,31 @@
   <p style="margin-top:10px;">&copy; 2026 Executive Home Solutions. All rights reserved.</p>
 </footer>
 
+<script>
+  const track = document.getElementById('reviewTrack');
+  const dotsWrap = document.getElementById('carouselDots');
+  const cards = track.querySelectorAll('.review-card');
+  let current = 0;
+
+  // Build dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + cards.length) % cards.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+  // Auto-advance every 5 seconds
+  setInterval(() => goTo(current + 1), 5000);
+</script>
 </body>
 </html>
