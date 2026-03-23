@@ -21,7 +21,10 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background: #070D14;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -32,8 +35,10 @@
 
     /* ── NAV ── */
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       background: var(--darker);
       box-shadow: 0 2px 12px rgba(0,0,0,0.3);
@@ -101,7 +106,7 @@
       min-height: 88vh;
       display: flex;
       align-items: center;
-      padding: 80px 24px;
+      padding: 144px 24px 80px;
       position: relative;
       overflow: hidden;
     }
