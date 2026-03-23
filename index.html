@@ -573,17 +573,13 @@
     .trust-bar {
       display: flex;
       align-items: center;
-      gap: 60px;
-      width: max-content;
-      animation: marquee 20s linear infinite;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 4px 24px;
     }
 
-    .trust-bar:hover { animation-play-state: paused; }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+    .trust-duplicate { display: none; }
 
     .trust-item {
       display: flex;
@@ -597,6 +593,24 @@
     }
 
     .trust-item span:first-child { font-size: 1.1rem; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .trust-bar {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 60px;
+        width: max-content;
+        padding: 4px 24px;
+        animation: marquee 20s linear infinite;
+      }
+      .trust-bar:hover { animation-play-state: paused; }
+      .trust-duplicate { display: flex; }
+    }
 
     /* ── PRICING ── */
     #pricing { background: var(--light); }
@@ -789,12 +803,12 @@
     <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
     <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
     <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
-    <!-- Duplicate for seamless loop -->
-    <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
-    <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
-    <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
-    <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
-    <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
+    <!-- Duplicate for mobile marquee loop -->
+    <div class="trust-item trust-duplicate"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+    <div class="trust-item trust-duplicate"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+    <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
+    <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
+    <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
   </div>
 </div>
 
