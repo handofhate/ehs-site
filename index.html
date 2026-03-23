@@ -37,6 +37,9 @@
       z-index: 100;
       background: var(--darker);
       box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     .nav-inner {
@@ -570,9 +573,7 @@
     #trust {
       background: var(--dark);
       border-top: 1px solid rgba(255,255,255,0.07);
-      overflow: hidden;
       padding: 12px 0;
-      transform: translateZ(0);
     }
 
     .trust-bar {
@@ -761,16 +762,32 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#home">
-    <img src="EHS Logo.jpg" alt="EHS Logo">
-    <span>EXECUTIVE HOME SOLUTIONS</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#home">
+      <img src="EHS Logo.jpg" alt="EHS Logo">
+      <span>EXECUTIVE HOME SOLUTIONS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+  <div id="trust">
+    <div class="trust-bar">
+      <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+      <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+      <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
+      <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
+      <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
+      <div class="trust-item trust-duplicate"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
+      <div class="trust-item trust-duplicate"><span>📅</span><span>Serving Arizona Since 2012</span></div>
+      <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
+      <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
+      <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -799,23 +816,6 @@
     </div>
   </div>
 </section>
-
-<!-- TRUST BAR -->
-<div id="trust">
-  <div class="trust-bar">
-    <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
-    <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
-    <div class="trust-item"><span>💬</span><span>Free Estimates</span></div>
-    <div class="trust-item"><span>⚡</span><span>24-Hour Response</span></div>
-    <div class="trust-item"><span>💳</span><span>Flexible Payment Options</span></div>
-    <!-- Duplicate for mobile marquee loop -->
-    <div class="trust-item trust-duplicate"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
-    <div class="trust-item trust-duplicate"><span>📅</span><span>Serving Arizona Since 2012</span></div>
-    <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
-    <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
-    <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
-  </div>
-</div>
 
 <!-- ABOUT -->
 <section id="about">
