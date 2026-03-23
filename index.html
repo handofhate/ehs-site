@@ -566,11 +566,14 @@
     /* ── TRUST BAR ── */
     #trust {
       background: var(--dark);
-      padding: 16px 0;
-      overflow: hidden;
       position: sticky;
       top: 64px;
       z-index: 99;
+    }
+
+    .trust-inner {
+      overflow: hidden;
+      padding: 16px 0;
     }
 
     .trust-bar {
@@ -801,6 +804,7 @@
 
 <!-- TRUST BAR -->
 <div id="trust">
+  <div class="trust-inner">
   <div class="trust-bar">
     <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
     <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
@@ -813,6 +817,7 @@
     <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
     <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
     <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
+  </div>
   </div>
 </div>
 
@@ -1024,11 +1029,6 @@
         <p class="section-label">Get In Touch</p>
         <h2 class="section-title">Request a Quote</h2>
         <p>Tell us about your project and we'll get back to you within 24 hours. No job is too big or too small — we're here to help.</p>
-        <div class="contact-detail">
-          <span>✉️</span>
-          <span><a href="mailto:requestehs@gmail.com">requestehs@gmail.com</a></span>
-        </div>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:24px;">Proudly servicing Flagstaff and Phoenix, Arizona since 2012.</p>
       </div>
       <form action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="17a938e3-26ea-4bb2-831e-3dfbaf05b26d">
@@ -1044,9 +1044,15 @@
             <input type="email" id="email" name="email" placeholder="jane@email.com" required>
           </div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="(928) 555-0100">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(928) 555-0100">
+          </div>
+          <div class="form-group">
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip" placeholder="85001" required maxlength="5" pattern="[0-9]{5}">
+          </div>
         </div>
         <div class="form-group">
           <label for="service">Type of Work</label>
