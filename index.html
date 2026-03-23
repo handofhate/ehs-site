@@ -688,7 +688,10 @@
         </div>
         <p style="font-size:0.85rem;color:var(--muted);margin-top:24px;">Proudly servicing Flagstaff, Arizona and surrounding areas since 2012.</p>
       </div>
-      <form action="mailto:requestehs@gmail.com" method="POST" enctype="text/plain">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="17a938e3-26ea-4bb2-831e-3dfbaf05b26d">
+        <input type="hidden" name="subject" value="New Quote Request — Executive Home Solutions">
+        <input type="hidden" name="redirect" value="https://requestehs.com?submitted=true">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your Name</label>
