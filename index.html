@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Home Solutions — Flagstaff Handyman Services</title>
+  <meta name="description" content="Flagstaff's trusted handyman service since 2012. Reliable, affordable, and professional home repairs and custom solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #1E293B;
+      --darker: #0F172A;
+      --accent: #D97706;
+      --accent-light: #FCD34D;
+      --light: #F8FAFC;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --text: #1E293B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--darker);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: 38px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .nav-logo span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent-light); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: #B45309 !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    #home {
+      background: linear-gradient(135deg, var(--darker) 0%, #1e3a5f 100%);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(217,119,6,0.2);
+      border: 1px solid rgba(217,119,6,0.4);
+      color: var(--accent-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content h1 span { color: var(--accent-light); }
+
+    .hero-content p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 20px rgba(217,119,6,0.4);
+    }
+
+    .btn-primary:hover { background: #B45309; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent-light);
+    }
+
+    .hero-stat span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 88px 24px; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #475569;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .highlight-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .highlight h4 {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .highlight p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 !important;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: #fff; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── REVIEWS ── */
+    #reviews {
+      background: var(--darker);
+    }
+
+    #reviews .section-title { color: #fff; }
+    #reviews .section-label { color: var(--accent-light); }
+    #reviews .section-sub { color: rgba(255,255,255,0.55); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .stars {
+      color: var(--accent-light);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+
+    .review-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── QUOTE ── */
+    #quote {
+      background: var(--light);
+    }
+
+    .quote-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .quote-info p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 1.02rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .contact-detail span:first-child {
+      font-size: 1.2rem;
+    }
+
+    .contact-detail a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--light);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    button[type="submit"] {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+
+    button[type="submit"]:hover { background: #B45309; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070D14;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.82rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid, .quote-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <img src="EHS Logo.jpg" alt="EHS Logo">
+    <span>EXECUTIVE HOME SOLUTIONS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Proudly Serving Flagstaff, AZ Since 2012</div>
+    <h1>Your Home,<br><span>Done Right.</span></h1>
+    <p>Reliable handyman services for every project, big or small. Quality work, honest pricing, and a commitment to leaving your home better than we found it.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-primary">Request a Quote</a>
+      <a href="#services" class="btn-secondary">See Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>12+</strong>
+        <span>Years in Business</span>
+      </div>
+      <div class="hero-stat">
+        <strong>100%</strong>
+        <span>Satisfaction Focus</span>
+      </div>
+      <div class="hero-stat">
+        <strong>5★</strong>
+        <span>Customer Reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Maintaining Excellence</h2>
+        <p>As a trusted handyman service in Flagstaff, Arizona, we take pride in the strong relationships we've built with our customers over the years. Every project — no matter the size — gets the same level of care and craftsmanship.</p>
+        <p>We're a family operation, and that means you'll always deal with real people who stand behind their work. When you call Executive Home Solutions, you're not getting a faceless company. You're getting a neighbor who takes your home as seriously as their own.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight">
+          <div class="highlight-icon">🔧</div>
+          <div>
+            <h4>Expert Handywork</h4>
+            <p>From minor repairs to major installs, we bring skill and precision to every job.</p>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">💡</div>
+          <div>
+            <h4>Custom Solutions</h4>
+            <p>We listen to your vision, offer improvements you may not have considered, and deliver exactly what you need.</p>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">💰</div>
+          <div>
+            <h4>Flexible &amp; Affordable</h4>
+            <p>Honest pricing with flexible payment planning. You only pay for the time actually spent on your project.</p>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-icon">✅</div>
+          <div>
+            <h4>Clean &amp; On Time</h4>
+            <p>We show up when we say we will and leave your space cleaner than we found it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Built for Every Project</h2>
+    <p class="section-sub">Whether it's a quick fix or a multi-day project, we've got the skills to handle it. Here's a sample of what we do — if you don't see it listed, just ask.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h3>Electrical Work</h3>
+        <p>Outlet installation, recessed lighting, fixture replacements, and more. Safe, clean, and up to code.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔩</span>
+        <h3>Plumbing &amp; Installs</h3>
+        <p>Water softeners, fixture installs, minor plumbing repairs, and appliance hookups.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <h3>Home Repairs</h3>
+        <p>Drywall, doors, hardware, weatherproofing — the everyday fixes that keep your home in top shape.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3>Interior Improvements</h3>
+        <p>Painting, trim, shelving, mounting, and finishing work that makes your space feel complete.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛠️</span>
+        <h3>Custom Projects</h3>
+        <p>Have something unique in mind? We love a challenge. Bring your ideas and we'll make them happen.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏡</span>
+        <h3>Home Watch Services</h3>
+        <p>Keeping an eye on your property while you're away. Peace of mind for seasonal residents and travelers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <p class="section-label">What People Say</p>
+    <h2 class="section-title">Real Work. Real Results.</h2>
+    <p class="section-sub">We let our customers do the talking.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Executive Home Solutions was a breeze to work with. Art had my water softener installed in no time at all, and made sure to leave the place cleaner than he found it."</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"When I needed an extra outlet installed in my laundry room, the guy was so fast I didn't even realize he was already done! Worth every penny!"</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Art was at my house for several days working on a huge project putting in recessed lighting all over my house. He was such a pleasant guy."</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Executive Home Solutions made my vision a reality, and more. They were able to take my ideas and suggest improvements I hadn't even thought of."</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Working with the scheduler via email was super easy and Art was on time. He finished ahead of schedule and I only had to pay for the time he actually spent working."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="container">
+    <div class="quote-wrap">
+      <div class="quote-info">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Request a Quote</h2>
+        <p>Tell us about your project and we'll get back to you promptly. No job is too big or too small — we're here to help.</p>
+        <div class="contact-detail">
+          <span>✉️</span>
+          <span><a href="mailto:requestehs@gmail.com">requestehs@gmail.com</a></span>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:24px;">Proudly servicing Flagstaff, Arizona and surrounding areas since 2012.</p>
+      </div>
+      <form action="mailto:requestehs@gmail.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(928) 555-0100">
+        </div>
+        <div class="form-group">
+          <label for="service">Type of Work</label>
+          <select id="service" name="service">
+            <option value="">Select a category...</option>
+            <option>Electrical</option>
+            <option>Plumbing / Installs</option>
+            <option>Home Repairs</option>
+            <option>Interior Improvements</option>
+            <option>Custom Project</option>
+            <option>Home Watch</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Project</label>
+          <textarea id="message" name="message" placeholder="Describe what you need done, when you'd like it completed, and any other details..."></textarea>
+        </div>
+        <button type="submit">Send Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">EXECUTIVE HOME SOLUTIONS</div>
+  <p>Flagstaff, Arizona &nbsp;·&nbsp; <a href="mailto:requestehs@gmail.com">requestehs@gmail.com</a> &nbsp;·&nbsp; Serving Flagstaff Since 2012</p>
+  <p style="margin-top:10px;">&copy; 2026 Executive Home Solutions. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
