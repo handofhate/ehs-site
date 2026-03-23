@@ -36,12 +36,15 @@
       top: 0;
       z-index: 100;
       background: var(--darker);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .nav-inner {
       padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 64px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
 
     .nav-logo {
@@ -566,14 +569,10 @@
     /* ── TRUST BAR ── */
     #trust {
       background: var(--dark);
-      position: sticky;
-      top: 64px;
-      z-index: 99;
-    }
-
-    .trust-inner {
+      border-top: 1px solid rgba(255,255,255,0.07);
       overflow: hidden;
-      padding: 16px 0;
+      padding: 12px 0;
+      transform: translateZ(0);
     }
 
     .trust-bar {
@@ -803,7 +802,6 @@
 
 <!-- TRUST BAR -->
 <div id="trust">
-  <div class="trust-inner">
   <div class="trust-bar">
     <div class="trust-item"><span>🏠</span><span>Family-Owned &amp; Operated</span></div>
     <div class="trust-item"><span>📅</span><span>Serving Arizona Since 2012</span></div>
@@ -816,7 +814,6 @@
     <div class="trust-item trust-duplicate"><span>💬</span><span>Free Estimates</span></div>
     <div class="trust-item trust-duplicate"><span>⚡</span><span>24-Hour Response</span></div>
     <div class="trust-item trust-duplicate"><span>💳</span><span>Flexible Payment Options</span></div>
-  </div>
   </div>
 </div>
 
